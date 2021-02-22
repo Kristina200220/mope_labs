@@ -1,8 +1,8 @@
 import random
-A0 = 3
-A1 = 4
-A2 = 2
-A3 = 1
+A0 = random.randrange(201,40401,1)
+A1 = random.randrange(201,40401,1)
+A2 = random.randrange(201,40401,1)
+A3 = random.randrange(201,40401,1)
 Ydif = []
 Yresult = []
 X1 = [random.randrange(0,20,1) for i in range(8)]
