@@ -1,4 +1,5 @@
 import random
+#кофеціїєнти а випадкові числа в проміжку номер_варіанту...номер_варіанту^2
 A0 = random.randrange(201,40401,1)
 A1 = random.randrange(201,40401,1)
 A2 = random.randrange(201,40401,1)
