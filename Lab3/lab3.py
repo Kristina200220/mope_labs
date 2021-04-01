@@ -169,4 +169,13 @@ class Experiment:
 
 
 experiment = Experiment(7, 8)
+time_measurement_start = perf_counter()
+experiment.count()
+time_measurement_stop = perf_counter()
+print(
+  "Час виконання: {:.5f} секунд".format(
+      time_measurement_stop - time_measurement_start
+    )
+)
+#experiment = Experiment(7, 8)
 experiment.perevirka()
