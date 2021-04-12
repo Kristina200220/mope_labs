@@ -314,7 +314,12 @@ def linear(n, m):
     else:
         print('Математична модель не адекватна експериментальним даним')
         return False
+    
+    m = 8
+    n = 3
 
+    if not linear(n, m):
+        linear(n * 2.3, m * 2.3)
 
 def main(n, m):
     main_1 = linear(n, m)
