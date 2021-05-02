@@ -4,7 +4,7 @@ from pyDOE2 import *
 from scipy.stats import f, t
 from functools import partial
 
-
+import time
 
 def regression(x, b):
     y = sum([x[i] * b[i] for i in range(len(x))])
@@ -181,6 +181,9 @@ def perevirka(X, Y, B, n, m):
     disp = s_kv(Y, y_aver, n, m)
     print('Дисперсія y:', disp)
 
+    global mytime
+    startTime = time.time()
+    
     Gp = kriteriy_cochrana(Y, y_aver, n, m)
     print(f'Gp = {Gp}')
     if Gp < G_kr:
@@ -189,6 +192,8 @@ def perevirka(X, Y, B, n, m):
         print("Збільшіть кількість дослідів")
         m += 1
         main(n, m)
+    
+    mytime += time.time() - startTime
 
     ts = kriteriy_studenta(X[:, 1:], Y, y_aver, n, m)
     print('\nКритерій Стьюдента:\n', ts)
@@ -235,5 +240,7 @@ def main(n, m):
 
 
 if __name__ == '__main__':
-    main(15, 6)
+    for i in range(100):
+        main(15, 6)
+    print('Середній час', mytime)
 
