@@ -1,5 +1,7 @@
 from math import fabs, sqrt
 
+from time import time
+
 m = 2
 p = 0.95 #ймовірність
 N = 15
@@ -109,6 +111,7 @@ def check_result(b_lst, k):
           b_lst[8] * matrix[k][7] + b_lst[9] * matrix[k][8] + b_lst[10] * matrix[k][9]
     return y_i
 
+mytime = time()
 
 def student_test(b_lst, number_x=10):
     dispersion_b = sqrt(dispersion_b2)
@@ -123,6 +126,8 @@ def student_test(b_lst, number_x=10):
         if fabs(t_practice / dispersion_b) < t_theoretical:
             b_lst[column] = 0
     return b_lst
+
+    mytime = time() - mytime
 
 
 def fisher_test():
@@ -201,6 +206,7 @@ def run_experiment():
                  find_known(7),  find_known(8), find_known(9), find_known(10)]
 
         beta = solve(unknown, known)
+        print("Час пошуку значимих коефіцієнтів: {:.5f}".format(mytime))
         print("Отримане рівняння регресії")
         print("{:.3f} + {:.3f} * X1 + {:.3f} * X2 + {:.3f} * X3 + {:.3f} * Х1X2 + {:.3f} * Х1X3 + {:.3f} * Х2X3"
               "+ {:.3f} * Х1Х2X3 + {:.3f} * X11^2 + {:.3f} * X22^2 + {:.3f} * X33^2 = ŷ\n\n\tПеревірка"
